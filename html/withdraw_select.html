@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gigster - Withdraw Earnings</title>
+    <link rel="stylesheet" href="../css/global-base.css"> 
+<link rel="stylesheet" href="../css/shared-components.css">
+<link rel="stylesheet" href="../css/withdraw-styles.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-left">
+            <a href="home.html" style="text-decoration: none; display: flex; align-items: center; gap: 15px;">
+                <img id="navLogo" class="nav-logo" src="../img/logo.png" alt="Gigster Logo">
+                <span class="nav-brand">GIGSTER</span>
+            </a>
+        
+        </div>
+        
+        <div class="navbar-center">
+            <a href="explore-gigs.html" class="nav-link">BROWSE</a>
+            <a href="community.html" class="nav-link">COMMUNITY</a>
+            <a href="about.html" class="nav-link">ABOUT</a>
+            <a href="help.html" class="nav-link">HELP</a>
+        </div>
+        
+        <div class="navbar-right">
+            <div class="profile-circle" id="profileCircle">
+                <img id="navProfileImg" src="../img/logo.png" alt="User Profile Picture (Click to go to Dashboard)">
+            </div>
+        </div>
+    </nav>
+
+    <main class="withdraw-container">
+        <div class="withdraw-card">
+            <h1 class="card-heading">Choose Your Withdrawal Method</h1>
+            <p class="card-subheading">Your current transferable earnings are: **<span id="selectEarningsAmount">₹ 0</span>**.</p>
+            
+            <div class="withdrawal-methods">
+                <div class="method-item" onclick="window.location.href='withdraw_bank.html'">
+                    <i class="fas fa-bank method-icon"></i>
+                    <div class="method-details">
+                        <h2 class="method-title">Bank Account (NEFT/IMPS)</h2>
+                        <p class="method-description">Fast and secure transfer to your local bank account.</p>
+                    </div>
+                    <i class="fas fa-chevron-right arrow-icon"></i>
+                </div>
+                
+                <div class="method-item disabled">
+                    <i class="fas fa-wallet method-icon"></i>
+                    <div class="method-details">
+                        <h2 class="method-title">Digital Wallet (Coming Soon)</h2>
+                        <p class="method-description">Withdraw funds to your preferred digital wallet.</p>
+                    </div>
+                    <i class="fas fa-chevron-right arrow-icon"></i>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <script src="../js/home.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            initSharedElements();
+            
+            const user = getUser();
+            if (user) {
+                document.getElementById('selectEarningsAmount').textContent = `₹ ${(user.earnings || 0).toLocaleString()}`;
+            }
+        });
+    </script>
+</body>
+</html>

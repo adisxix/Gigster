@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gigster - Help</title>
+    <link rel="stylesheet" href="../css/global-base.css">
+    <link rel="stylesheet" href="../css/shared-components.css">
+    <link rel="stylesheet" href="../css/help.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-left">
+            <a href="home.html" style="text-decoration: none; display: flex; align-items: center; gap: 15px;">
+                <img id="navLogo" class="nav-logo" src="../img/logo.png" alt="Gigster Logo">
+                <span class="nav-brand">GIGSTER</span>
+            </a>
+        </div>
+        <div class="navbar-center">
+            <a href="explore-gigs.html" class="nav-link" onclick="location.href='explore-gigs.html'; return false;">BROWSE</a>
+            <a href="community.html" class="nav-link" onclick="location.href='community.html'; return false;">COMMUNITY</a>
+            <a href="about.html" class="nav-link" onclick="location.href='about.html'; return false;">ABOUT</a>
+            <a href="help.html" class="nav-link" onclick="location.href='help.html'; return false;">HELP</a>
+        </div>
+        <div class="navbar-right">
+            <div class="profile-circle" id="profileCircle">
+                <img id="navProfileImg" src="../img/logo.png" alt="User Profile Picture (Click to go to Dashboard)">
+            </div>
+        </div>
+    </nav>
+
+    <main class="help-main">
+        <section class="help-hero">
+            <div class="container">
+                <h1 class="help-heading">FAQs</h1>
+                <div class="faqs">
+                    <div class="faq-item">
+                        <button class="faq-question">How do I post a gig?</button>
+                        <div class="faq-answer"><p>Go to the home page and click "POST A GIG". Fill in the details and publish.</p></div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">How do I find and apply to gigs?</button>
+                        <div class="faq-answer"><p>Use "BROWSE" to explore gigs and follow the instructions in each gig to apply.</p></div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">Is payment secure?</button>
+                        <div class="faq-answer"><p>Yes. We use secure flows and protect both clients and freelancers.</p></div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">Can I edit my profile?</button>
+                        <div class="faq-answer"><p>Yes. Visit your account dashboard to update your profile and settings.</p></div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">Who can I contact for support?</button>
+                        <div class="faq-answer"><p>Use the form below or our Ask Kiwi assistant for quick help.</p></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="help-support">
+            <div class="container support-grid">
+                <div class="support-left">
+                    <h2 class="support-heading">Reach out to us</h2>
+                    <form id="contactForm" class="contact-form">
+                        <div class="form-row">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-row">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-row">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn submit-btn">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4 class="footer-title">Gigster</h4>
+                    <p class="footer-description">Connecting talent with opportunity. The future of work starts here.</p>
+                    <div class="social-icons">
+                        <a href="https://facebook.com" target="_blank" class="social-icon"><i class="fab fa-facebook"></i></a>
+                        <a href="https://twitter.com" target="_blank" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="https://instagram.com" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="https://linkedin.com" target="_blank" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://youtube.com" target="_blank" class="social-icon"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-title">For Clients</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" class="footer-link">How to Hire</a></li>
+                        <li><a href="#" class="footer-link">Pricing</a></li>
+                        <li><a href="#" class="footer-link">Success Stories</a></li>
+                        <li><a href="#" class="footer-link">Enterprise</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-title">For Freelancers</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" class="footer-link">How to Work</a></li>
+                        <li><a href="#" class="footer-link">Freelancer Resources</a></li>
+                        <li><a href="#" class="footer-link">Community</a></li>
+                        <li><a href="#" class="footer-link">Success Tips</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-title">Support</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" class="footer-link">Help Center</a></li>
+                        <li><a href="#" class="footer-link">Contact Us</a></li>
+                        <li><a href="#" class="footer-link">Privacy Policy</a></li>
+                        <li><a href="#" class="footer-link">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="footer-copyright">&copy; 2025 Gigster. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/home.js"></script>
+    <script>
+      document.querySelectorAll('.faq-question').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const ans = btn.nextElementSibling; 
+          ans.classList.toggle('open');
+          btn.classList.toggle('open');
+        });
+      });
+
+      const contactForm = document.getElementById('contactForm');
+      if (contactForm) {
+        contactForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          window.location.href = 'feedback.html';
+        });
+      }
+    </script>
+
+</body>
+</html>

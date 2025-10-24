@@ -1,0 +1,15 @@
+:root { --color-dark: #1d3557; --color-secondary: #6b7280; --color-primary: #e63946; }
+
+body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; background: #f7f7fb; }
+
+.thankyou-wrap { min-height: 100vh; display: grid; place-items: center; padding: 40px 20px; }
+
+.thankyou-card { background: #fff; border: 1px solid rgba(0,0,0,0.06); border-radius: 16px; box-shadow: 0 10px 24px rgba(0,0,0,0.08); padding: 30px; max-width: 640px; width: 100%; text-align: center; }
+
+.thankyou-title { font-size: 1.8rem; font-weight: 900; color: var(--color-dark); margin: 0 0 10px; }
+
+.thankyou-text { color: var(--color-secondary); margin: 0 0 16px; }
+
+.thankyou-note { color: var(--color-secondary); }
+
+.btn-home { margin-top: 14px; background: var(--color-primary); color: #fff; border: none; border-radius: 10px; padding: 10px 16px; font-weight: 700; cursor: pointer; }

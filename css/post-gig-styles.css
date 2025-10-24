@@ -1,0 +1,126 @@
+
+.post-gig-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh; 
+    padding: 40px;
+}
+
+.post-gig-card {
+    background-color: var(--color-off-white);
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    max-width: 700px;
+    width: 100%;
+    text-align: center;
+}
+
+.post-gig-card h1 {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--color-dark-blue);
+    margin-bottom: 25px;
+    border-bottom: 3px solid var(--color-red);
+    padding-bottom: 10px;
+    display: inline-block;
+}
+
+.form-logo {
+    margin-bottom: 10px;
+}
+
+.form-logo-img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--color-dark-blue);
+}
+
+.form-group input[type="text"],
+.form-group input[type="number"],
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--color-light-blue);
+    border-radius: 6px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+    background-color: #fcfcfc;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: var(--color-red);
+    outline: none;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.image-upload-area {
+    border: 2px dashed var(--color-light-blue);
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.image-upload-area:hover {
+    background-color: #f5fafd;
+    border-color: var(--color-medium-blue);
+}
+
+.image-upload-area i {
+    font-size: 30px;
+    color: var(--color-medium-blue);
+    margin-bottom: 10px;
+    display: block;
+}
+
+#gigImage {
+    display: none;
+}
+
+.image-preview-container {
+    margin-top: 15px;
+    position: relative;
+    display: none; 
+}
+
+#imagePreview {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    border: 1px solid var(--color-light-blue);
+}
+
+.post-gig-submit-btn {
+    width: 100%;
+    padding: 15px;
+    margin-top: 20px;
+    font-size: 18px;
+}
+
+@media (max-width: 768px) {
+    .post-gig-container { padding: 20px; }
+    .post-gig-card { padding: 20px; }
+    .post-gig-card h1 { font-size: 24px; }
+}

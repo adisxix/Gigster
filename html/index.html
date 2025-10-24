@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gigster - Get Started</title>
+    <link rel="stylesheet" href="../css/global-base.css"> 
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <div id="landing-page" class="page active">
+        <video autoplay muted loop class="background-video">
+            <source src="../vid/bg.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        
+        <div class="video-overlay"></div>
+        
+        <div class="landing-container">
+            <div class="logo-section">
+                <img id="gigster-logo" src="../img/logo.png" alt="Gigster Logo" class="logo">
+                <h1 class="brand-text">GIGSTER</h1>
+            </div>
+            
+            <button class="btn btn-primary" onclick="goToLogin()">GET STARTED</button>
+        </div>
+    </div>
+
+    <div id="login-page" class="page">
+        <div class="form-container">
+            <div class="form-header">
+                <h2>Login</h2>
+            </div>
+            
+            <form id="login-form" onsubmit="handleLogin(event)" action="#"> 
+                <div class="form-group">
+                    <label for="login-email">Email</label>
+                    <input type="email" id="login-email" required placeholder="Enter your email">
+                </div>
+                
+                <div class="form-group">
+                    <label for="login-password">Password</label>
+                    <input type="password" id="login-password" required placeholder="Enter your password">
+                </div>
+                
+                <button type="submit" class="btn btn-primary">LOG IN</button>
+                <a href="#" class="form-link" onclick="goToSignup(event)">Don't have an account? Sign Up</a>
+            </form>
+        </div>
+    </div>
+
+    <div id="signup-page" class="page">
+        <div class="form-container">
+            <div class="form-header">
+                <h2>Sign Up</h2>
+            </div>
+            
+            <form id="signup-form" onsubmit="handleSignup(event)" action="#">
+                <div class="form-group">
+                    <label for="first-name">First Name</label>
+                    <input type="text" id="first-name" required placeholder="Enter your first name">
+                </div>
+                
+                <div class="form-group">
+                    <label for="last-name">Last Name</label>
+                    <input type="text" id="last-name" required placeholder="Enter your last name">
+                </div>
+                
+                <div class="form-group">
+                    <label for="signup-email">Email</label>
+                    <input type="email" id="signup-email" required placeholder="Enter your email">
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone-number">Phone Number</label>
+                    <input type="tel" id="phone-number" required placeholder="Enter your phone number">
+                </div>
+                
+                <div class="form-group">
+                    <label for="signup-password">Password</label>
+                    <input type="password" id="signup-password" required placeholder="Enter your password">
+                </div>
+                
+                <button type="submit" class="btn btn-primary">SIGN UP</button>
+                <a href="#" class="form-link" onclick="goToLogin()">Already have an account? Log In</a>
+            </form>
+        </div>
+    </div>
+
+    <div id="success-page" class="page">
+        <div class="success-container">
+            <div class="success-icon">✓</div>
+            <h2>Successfully Signed Up!</h2>
+            <p>Welcome to Gigster. Redirecting to login...</p>
+        </div>
+    </div>
+
+    <script src="../js/script.js"></script>
+</body>
+</html>

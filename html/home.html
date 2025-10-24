@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gigster - Home</title>
+    <link rel="stylesheet" href="../css/global-base.css"> 
+    <link rel="stylesheet" href="../css/home.css">
+    <link rel="stylesheet" href="../css/shared-components.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-left">
+            <a href="home.html" style="text-decoration: none; display: flex; align-items: center; gap: 15px;">
+                <img id="navLogo" class="nav-logo" src="../img/logo.png" alt="Gigster Logo">
+                <span class="nav-brand">GIGSTER</span>
+            </a>
+        </div>
+        
+        <div class="navbar-center">
+            <a href="explore-gigs.html" class="nav-link">BROWSE</a>
+            <a href="community.html" class="nav-link">COMMUNITY</a>
+            <a href="about.html" class="nav-link">ABOUT</a>
+            <a href="help.html" class="nav-link">HELP</a>
+        </div>
+        
+        <div class="navbar-right">
+            <div class="profile-circle" id="profileCircle">
+                <img id="navProfileImg" src="../img/logo.png" alt="User Profile Picture (Click to go to Dashboard)">
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero-section">
+        <video autoplay muted loop class="hero-video">
+            <source src="../vid/bg2.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        
+        <div class="hero-overlay"></div>
+        
+        <div class="hero-content">
+            <h1 class="hero-title">Find The Right People Fast</h1>
+            <p class="hero-subtitle">Your Work Your Way</p>
+            
+            <div class="hero-buttons">
+                <button class="btn btn-explore" onclick="window.location.href='explore-gigs.html'">EXPLORE</button>
+                <button class="btn btn-post" onclick="window.location.href='post-gig.html'">POST A GIG</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 1. Discover Gigs Section -->
+    <section class="discover-gigs-section">
+        <div class="container">
+            <h2 class="section-title">Discover Gigs</h2>
+            <div class="gigs-grid">
+                <div class="gig-box">
+                    <img src="../img/1.jpg" alt="Gig Image" class="gig-image">
+                    <span class="gig-category">Web Development</span>
+                    <h3 class="gig-title">React Developer Needed</h3>
+                    <p class="gig-description">Looking for an experienced React developer to build a modern web application with clean UI and responsive design.</p>
+                    <div class="gig-price">₹25,000</div>
+                    <button class="view-details-btn" onclick="showGigDetails('react-dev')">View Details</button>
+                </div>
+                <div class="gig-box">
+                    <img src="../img/2.jpg" alt="Gig Image" class="gig-image">
+                    <span class="gig-category">Graphic Design</span>
+                    <h3 class="gig-title">Logo Design Project</h3>
+                    <p class="gig-description">Creative logo design for a startup company. Need modern, professional, and memorable design.</p>
+                    <div class="gig-price">₹8,000</div>
+                    <button class="view-details-btn" onclick="showGigDetails('logo-design')">View Details</button>
+                </div>
+                <div class="gig-box">
+                    <img src="../img/3.jpg" alt="Gig Image" class="gig-image">
+                    <span class="gig-category">Writing</span>
+                    <h3 class="gig-title">Content Writing</h3>
+                    <p class="gig-description">SEO-friendly blog posts and website content for a tech company. Need engaging and informative content.</p>
+                    <div class="gig-price">₹5,000</div>
+                    <button class="view-details-btn" onclick="showGigDetails('content-writing')">View Details</button>
+                </div>
+                <div class="gig-box">
+                    <img src="../img/4.jpg" alt="Gig Image" class="gig-image">
+                    <span class="gig-category">Marketing</span>
+                    <h3 class="gig-title">Social Media Manager</h3>
+                    <p class="gig-description">Manage social media accounts and create engaging content for Instagram, Facebook, and Twitter.</p>
+                    <div class="gig-price">₹15,000</div>
+                    <button class="view-details-btn" onclick="showGigDetails('social-media')">View Details</button>
+                </div>
+                <div class="gig-box">
+                    <img src="../img/5.jpg" alt="Gig Image" class="gig-image">
+                    <span class="gig-category">Consulting</span>
+                    <h3 class="gig-title">Business Strategy</h3>
+                    <p class="gig-description">Expert business consultant needed to help develop growth strategy for a growing startup.</p>
+                    <div class="gig-price">₹30,000</div>
+                    <button class="view-details-btn" onclick="showGigDetails('business-strategy')">View Details</button>
+                </div>
+                <div class="gig-box">
+                    <img src="../img/6.jpg" alt="Gig Image" class="gig-image">
+                    <span class="gig-category">Web Development</span>
+                    <h3 class="gig-title">E-commerce Website</h3>
+                    <p class="gig-description">Full-stack developer needed to build a complete e-commerce platform with payment integration.</p>
+                    <div class="gig-price">₹50,000</div>
+                    <button class="view-details-btn" onclick="showGigDetails('ecommerce')">View Details</button>
+                </div>
+                <div class="gig-box">
+                    <img src="../img/7.jpg" alt="Gig Image" class="gig-image">
+                    <span class="gig-category">Graphic Design</span>
+                    <h3 class="gig-title">UI/UX Design</h3>
+                    <p class="gig-description">Design user interface and user experience for a mobile application. Need modern and intuitive design.</p>
+                    <div class="gig-price">₹20,000</div>
+                    <button class="view-details-btn" onclick="showGigDetails('ui-ux')">View Details</button>
+                </div>
+                <div class="gig-box">
+                    <img src="../img/8.jpg" alt="Gig Image" class="gig-image">
+                    <span class="gig-category">Writing</span>
+                    <h3 class="gig-title">Technical Writing</h3>
+                    <p class="gig-description">Technical documentation and user manuals for software products. Need clear and comprehensive writing.</p>
+                    <div class="gig-price">₹12,000</div>
+                    <button class="view-details-btn" onclick="showGigDetails('technical-writing')">View Details</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. Popular Services Section -->
+    <section class="popular-services-section">
+        <div class="container">
+            <h2 class="section-title">Popular Services</h2>
+            <div class="services-strip">
+                <div class="service-box">
+                    <img src="../img/9.png" alt="Service" class="service-image">
+                    <span class="service-name">Videography</span>
+                </div>
+                <div class="service-box">
+                    <img src="../img/10.png" alt="Service" class="service-image">
+                    <span class="service-name">Graphic Design</span>
+                </div>
+                <div class="service-box">
+                    <img src="../img/11.png" alt="Service" class="service-image">
+                    <span class="service-name">Content Writing</span>
+                </div>
+                <div class="service-box">
+                    <img src="../img/12.png" alt="Service" class="service-image">
+                    <span class="service-name">Translation</span>
+                </div>
+                <div class="service-box">
+                    <img src="../img/13.png" alt="Service" class="service-image">
+                    <span class="service-name">Editing</span>
+                </div>
+                <div class="service-box">
+                    <img src="../img/14.png" alt="Service" class="service-image">
+                    <span class="service-name">Photography</span>
+                </div>
+                <div class="service-box">
+                    <img src="../img/15.png" alt="Service" class="service-image">
+                    <span class="service-name">Marketing</span>
+                </div>
+                <div class="service-box">
+                    <img src="../img/16.png" alt="Service" class="service-image">
+                    <span class="service-name">Walker</span>
+                </div>
+                <div class="service-box">
+                    <img src="../img/17.png" alt="Service" class="service-image">
+                    <span class="service-name">VA</span>
+                </div>
+                <div class="service-box">
+                    <img src="../img/18.png" alt="Service" class="service-image">
+                    <span class="service-name">Consulting</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Make It All Happen Section -->
+    <section class="make-it-happen-section">
+        <div class="container">
+            <h2 class="section-title">Make It All Happen With Gigster</h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <i class="fas fa-users feature-icon"></i>
+                    <p class="feature-text">Connect with talented professionals worldwide</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-rocket feature-icon"></i>
+                    <p class="feature-text">Get your projects done faster and more efficiently</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-shield-alt feature-icon"></i>
+                    <p class="feature-text">Secure payments and protected transactions</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-star feature-icon"></i>
+                    <p class="feature-text">Quality work guaranteed with our rating system</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Gallery Section -->
+    <section class="gallery-section">
+        <div class="container">
+            <h2 class="section-title">Our Community in Action</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="../img/19.jpg" alt="Gallery Image" class="gallery-image">
+                </div>
+                <div class="gallery-item">
+                    <img src="../img/20.jpg" alt="Gallery Image" class="gallery-image">
+                </div>
+                <div class="gallery-item">
+                    <img src="../img/21.jpg" alt="Gallery Image" class="gallery-image">
+                </div>
+                <div class="gallery-item">
+                    <img src="../img/22.jpg" alt="Gallery Image" class="gallery-image">
+                </div>
+                <div class="gallery-item">
+                    <img src="../img/23.jpg" alt="Gallery Image" class="gallery-image">
+                </div>
+                <div class="gallery-item">
+                    <img src="../img/24.jpg" alt="Gallery Image" class="gallery-image">
+                </div>
+                <div class="gallery-item">
+                    <img src="../img/25.jpg" alt="Gallery Image" class="gallery-image">
+                </div>
+                <div class="gallery-item">
+                    <img src="../img/26.jpg" alt="Gallery Image" class="gallery-image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Why Join Us Section -->
+    <section class="why-join-section">
+        <div class="container">
+            <h2 class="section-title">Why Join Us?</h2>
+            <div class="benefits-grid">
+                <div class="benefit-box">
+                    <i class="fas fa-dollar-sign benefit-icon"></i>
+                    <p class="benefit-text">Earn money doing what you love</p>
+                </div>
+                <div class="benefit-box">
+                    <i class="fas fa-clock benefit-icon"></i>
+                    <p class="benefit-text">Work on your own schedule</p>
+                </div>
+                <div class="benefit-box">
+                    <i class="fas fa-globe benefit-icon"></i>
+                    <p class="benefit-text">Connect with clients worldwide</p>
+                </div>
+                <div class="benefit-box">
+                    <i class="fas fa-graduation-cap benefit-icon"></i>
+                    <p class="benefit-text">Learn new skills and grow</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. How It Works Section -->
+    <section class="how-it-works-section">
+        <div class="container">
+            <h2 class="section-title">How It Works</h2>
+            
+            <div class="workflow-section">
+                <h3 class="workflow-title">For Hiring</h3>
+                <div class="workflow-grid">
+                    <div class="workflow-box">
+                        <i class="fas fa-clipboard-list workflow-icon" aria-hidden="true"></i>
+                        <p class="workflow-text">Post your project requirements</p>
+                    </div>
+                    <div class="workflow-box">
+                        <i class="fas fa-list-check workflow-icon" aria-hidden="true"></i>
+                        <p class="workflow-text">Review proposals from freelancers</p>
+                    </div>
+                    <div class="workflow-box">
+                        <i class="fas fa-handshake workflow-icon" aria-hidden="true"></i>
+                        <p class="workflow-text">Choose the best fit and get started</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="workflow-section">
+                <h3 class="workflow-title">For Finding Work</h3>
+                <div class="workflow-grid">
+                    <div class="workflow-box">
+                        <i class="fas fa-magnifying-glass workflow-icon" aria-hidden="true"></i>
+                        <p class="workflow-text">Browse available gigs</p>
+                    </div>
+                    <div class="workflow-box">
+                        <i class="fas fa-paper-plane workflow-icon" aria-hidden="true"></i>
+                        <p class="workflow-text">Submit your proposal</p>
+                    </div>
+                    <div class="workflow-box">
+                        <i class="fas fa-briefcase workflow-icon" aria-hidden="true"></i>
+                        <p class="workflow-text">Get hired and start working</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. What People Say Section -->
+    <section class="testimonials-section">
+        <div class="container">
+            <h2 class="section-title">What People Say</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-box">
+                    <div class="testimonial-content">
+                        <p class="testimonial-text">"Gigster helped me find amazing freelancers for my startup. The quality of work exceeded my expectations!"</p>
+                        <div class="testimonial-author">
+                            <img src="../img/27.jpg" alt="Author" class="author-image">
+                            <div class="author-info">
+                                <h4 class="author-name">Sydney Sweeney</h4>
+                                <p class="author-title">Startup Founder</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-box">
+                    <div class="testimonial-content">
+                        <p class="testimonial-text">"As a freelancer, Gigster has been a game-changer. I've found consistent work and built lasting client relationships."</p>
+                        <div class="testimonial-author">
+                            <img src="../img/28.jpeg" alt="Author" class="author-image">
+                            <div class="author-info">
+                                <h4 class="author-name">Arpit Bala</h4>
+                                <p class="author-title">Web Developer</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-box">
+                    <div class="testimonial-content">
+                        <p class="testimonial-text">"The platform is user-friendly and the payment system is secure. Highly recommended."</p>
+                        <div class="testimonial-author">
+                            <img src="../img/29.jpg" alt="Author" class="author-image">
+                            <div class="author-info">
+                                <h4 class="author-name">Michele Morrone</h4>
+                                <p class="author-title">Graphic Designer</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. Join Our Community Section -->
+    <section class="join-community-section">
+        <div class="container">
+            <div class="community-content">
+                <div class="community-image">
+                    <img src="../img/community.jpg" alt="Community" class="community-img">
+                </div>
+                <div class="community-text">
+                    <h2 class="community-title">Join Our Community</h2>
+                    <p class="community-description">Connect with thousands of talented professionals and clients. Be part of the future of work.</p>
+                    <button class="btn btn-primary community-btn" onclick="window.location.href='community.html'">Join Community</button>
+                    <p class="community-note">Join over 50,000+ professionals who trust Gigster for their freelance needs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. Explore Gigster Section -->
+    <section class="explore-gigster-section">
+        <div class="container">
+            <h3 class="explore-title">Ready to Get Started?</h3>
+            <p class="explore-description">Discover endless opportunities and connect with the best talent in the industry.</p>
+            <button class="btn btn-primary explore-btn" onclick="window.location.href='explore-gigs.html'">Explore Gigster</button>
+        </div>
+    </section>
+
+    <!-- 10. Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4 class="footer-title">Gigster</h4>
+                    <p class="footer-description">Connecting talent with opportunity. The future of work starts here.</p>
+                    <div class="social-icons">
+                        <a href="https://facebook.com" target="_blank" class="social-icon"><i class="fab fa-facebook"></i></a>
+                        <a href="https://twitter.com" target="_blank" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="https://instagram.com" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="https://linkedin.com" target="_blank" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://youtube.com" target="_blank" class="social-icon"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-title">For Clients</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" class="footer-link">How to Hire</a></li>
+                        <li><a href="#" class="footer-link">Pricing</a></li>
+                        <li><a href="#" class="footer-link">Success Stories</a></li>
+                        <li><a href="#" class="footer-link">Enterprise</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-title">For Freelancers</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" class="footer-link">How to Work</a></li>
+                        <li><a href="#" class="footer-link">Freelancer Resources</a></li>
+                        <li><a href="#" class="footer-link">Community</a></li>
+                        <li><a href="#" class="footer-link">Success Tips</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-title">Support</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" class="footer-link">Help Center</a></li>
+                        <li><a href="#" class="footer-link">Contact Us</a></li>
+                        <li><a href="#" class="footer-link">Privacy Policy</a></li>
+                        <li><a href="#" class="footer-link">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="footer-copyright">&copy; 2025 Gigster. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/home.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            initSharedElements();
+            initServicesStrip();
+        });
+
+        function showGigDetails(gigId) {
+        }
+
+        function initServicesStrip() {
+            const servicesStrip = document.querySelector('.services-strip');
+            if (servicesStrip) {
+                const services = servicesStrip.innerHTML;
+                servicesStrip.innerHTML = services + services;
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gigster - Withdrawal Complete</title>
+<link rel="stylesheet" href="../css/global-base.css">
+<link rel="stylesheet" href="../css/shared-components.css">
+<link rel="stylesheet" href="../css/withdraw-styles.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-left">
+            <a href="home.html" style="text-decoration: none; display: flex; align-items: center; gap: 15px;">
+                <img id="navLogo" class="nav-logo" src="../img/logo.png" alt="Gigster Logo">
+                <span class="nav-brand">GIGSTER</span>
+            </a>
+        
+        </div>
+        
+        <div class="navbar-center">
+            <a href="explore-gigs.html" class="nav-link">BROWSE</a>
+            <a href="community.html" class="nav-link">COMMUNITY</a>
+            <a href="about.html" class="nav-link">ABOUT</a>
+            <a href="help.html" class="nav-link">HELP</a>
+        </div>
+        
+        <div class="navbar-right">
+            <div class="profile-circle" id="profileCircle">
+                <img id="navProfileImg" src="../img/logo.png" alt="User Profile Picture (Click to go to Dashboard)">
+
+            </div>
+        </div>
+    </nav>
+
+    <main class="withdraw-container">
+        <div class="success-card">
+            <i class="fas fa-check-circle success-icon"></i>
+            <h1 class="success-heading">Withdrawal Initiated!</h1>
+            <p class="success-message">Your earnings transfer is being processed.</p>
+            <p class="success-message-detail">You can check your account dashboard for the updated balance within 24 hours.</p>
+
+            <button class="back-to-dashboard-btn" onclick="window.location.href='account.html'">BACK TO DASHBOARD</button>
+        </div>
+    </main>
+
+    <script src="../js/home.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            initSharedElements();
+        });
+    </script>
+</body>
+</html>

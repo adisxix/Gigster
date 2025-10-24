@@ -1,0 +1,48 @@
+
+.approval-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+  padding: 40px;
+}
+
+.approval-card {
+  background-color: var(--color-off-white);
+  padding: 50px;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  max-width: 500px;
+}
+
+.approval-icon {
+  font-size: 80px;
+  color: #4caf50;
+  margin-bottom: 20px;
+}
+
+.approval-heading {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--color-dark-blue);
+  letter-spacing: 2px;
+  margin-bottom: 15px;
+}
+
+.approval-message {
+  font-size: 18px;
+  color: var(--color-medium-blue);
+  margin-bottom: 10px;
+}
+
+.approval-detail {
+  font-size: 14px;
+  color: #666;
+}
+
+@media (max-width: 768px) {
+    .approval-card { padding: 30px; margin: 20px auto; }
+    .approval-heading { font-size: 24px; }
+    .approval-icon { font-size: 60px; }
+}

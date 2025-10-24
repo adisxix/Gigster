@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gigster - Bank Withdrawal</title>
+  <link rel="stylesheet" href="../css/global-base.css">
+<link rel="stylesheet" href="../css/shared-components.css">
+<link rel="stylesheet" href="../css/withdraw-styles.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-left">
+            <a href="home.html" style="text-decoration: none; display: flex; align-items: center; gap: 15px;">
+                <img id="navLogo" class="nav-logo" src="../img/logo.png" alt="Gigster Logo">
+                <span class="nav-brand">GIGSTER</span>
+            </a>
+        
+        </div>
+        
+        <div class="navbar-center">
+            <a href="explore-gigs.html" class="nav-link">BROWSE</a>
+            <a href="community.html" class="nav-link">COMMUNITY</a>
+            <a href="about.html" class="nav-link">ABOUT</a>
+            <a href="help.html" class="nav-link">HELP</a>
+        </div>
+        
+        <div class="navbar-right">
+            <div class="profile-circle" id="profileCircle">
+                <img id="navProfileImg" src="../img/logo.png" alt="User Profile Picture (Click to go to Dashboard)">
+            </div>
+        </div>
+    </nav>
+
+    <main class="withdraw-container">
+        <div class="withdraw-card">
+            <h1 class="card-heading">Withdraw to Bank Account</h1>
+            <p class="card-subheading">Enter your bank details to complete the transfer of **<span id="bankEarningsAmount">₹ 0</span>**.</p>
+            <form id="bankWithdrawForm" class="withdraw-form" onsubmit="handleBankWithdraw(event)">
+                <div class="form-group">
+                    <label for="account-holder-name">Account Holder Name</label>
+                    <input type="text" id="account-holder-name" required placeholder="Name on bank account">
+                </div>
+                
+                <div class="form-group">
+                    <label for="account-number">Bank Account Number</label>
+                    <input type="text" id="account-number" required placeholder="Your account number">
+                </div>
+                
+                <div class="form-group">
+                    <label for="confirm-account-number">Confirm Account Number</label>
+                    <input type="text" id="confirm-account-number" required placeholder="Re-enter your account number">
+                </div>
+
+                <div class="form-group">
+                    <label for="ifsc-code">IFSC Code</label>
+                    <input type="text" id="ifsc-code" required placeholder="e.g., KKBK0000000">
+                </div>
+
+                <div class="form-group">
+                    <label for="bank-name">Bank Name</label>
+                    <input type="text" id="bank-name" required placeholder="e.g., Kotak Mahindra Bank">
+                </div>
+
+                <button type="submit" class="btn btn-primary withdraw-confirm-btn">CONFIRM AND WITHDRAW</button>
+            </form>
+        </div>
+    </main>
+
+    <script src="../js/home.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            initSharedElements();
+            
+            // Update the earnings amount display on this page
+            const user = getUser();
+            if (user) {
+                document.getElementById('bankEarningsAmount').textContent = `₹ ${(user.earnings || 0).toLocaleString()}`;
+            }
+        });
+        
+        function handleBankWithdraw(event) {
+            event.preventDefault();
+            
+            const accountNumber = document.getElementById('account-number').value;
+            const confirmAccountNumber = document.getElementById('confirm-account-number').value;
+            
+            if (accountNumber !== confirmAccountNumber) {
+                alert('Account numbers do not match. Please check and try again.');
+                return;
+            }
+            
+            window.location.href = 'withdraw_success.html';
+        }
+    </script>
+</body>
+</html>

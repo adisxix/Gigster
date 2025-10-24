@@ -1,0 +1,708 @@
+
+.hero-section {
+  position: relative;
+  width: 100%;
+  height: 480px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  margin-top: 0;
+  border-top: 2px solid red;
+  border-bottom: 2px solid red;
+}
+
+.hero-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(29, 53, 87, 0.5);
+  z-index: 2;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+.hero-title {
+  font-size: 52px;
+  font-weight: 900;
+  color: var(--color-light);
+  line-height: 1.2;
+  letter-spacing: 3px;
+  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.hero-subtitle {
+  font-size: 20px;
+  color: var(--color-accent);
+  max-width: 600px;
+  line-height: 1.5;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.hero-btn {
+  background-color: var(--color-primary);
+  color: var(--color-light);
+  padding: 15px 35px;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.hero-btn:hover {
+  background-color: #c93434;
+}
+
+@media (max-width: 768px) {
+    .hero-title { font-size: 36px; }
+    .hero-subtitle { font-size: 18px; }
+    .hero-section { height: 400px; }
+}
+
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--color-dark);
+    margin-bottom: 50px;
+    letter-spacing: 2px;
+}
+
+/* 1. Discover Gigs Section */
+.discover-gigs-section {
+    padding: 80px 0;
+    background-color: var(--color-light);
+}
+
+.gigs-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+}
+
+.gig-box {
+    background-color: var(--color-light);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: var(--transition);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.gig-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.gig-box .gig-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 3px solid var(--color-primary);
+}
+
+.gig-box .gig-category {
+    background-color: var(--color-primary);
+    color: var(--color-light);
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 15px 15px 0 15px;
+    display: inline-block;
+}
+
+.gig-box .gig-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--color-dark);
+    margin: 15px 15px 10px 15px;
+    line-height: 1.3;
+}
+
+.gig-box .gig-description {
+    color: var(--color-secondary);
+    margin: 0 15px 15px 15px;
+    line-height: 1.4;
+    font-size: 0.9rem;
+}
+
+.gig-box .gig-price {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    margin: 0 15px 10px 15px;
+    margin-top: auto;
+}
+
+.view-details-btn {
+    width: calc(100% - 30px);
+    margin: 0 15px 20px 15px;
+    background-color: var(--color-primary);
+    color: var(--color-light);
+    border: none;
+    padding: 10px 15px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: var(--transition);
+    margin-top: 10px;
+}
+
+.view-details-btn:hover {
+    background-color: #d13240;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* 2. Popular Services Section */
+.popular-services-section {
+    padding: 80px 0;
+    background-color: var(--color-accent);
+    overflow: hidden;
+    border-bottom: 2px solid red;
+    border-top: 2px solid red;
+}
+
+.services-strip {
+    display: flex;
+    animation: scroll 20s linear infinite;
+    gap: 20px;
+}
+
+.service-box {
+    background-color: var(--color-light);
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    min-width: 150px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.service-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.service-image {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.service-name {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-dark);
+}
+
+@keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+/* 3. Make It All Happen Section */
+.make-it-happen-section {
+    padding: 80px 0;
+    background-color: var(--color-light);
+    border-bottom: 2px solid red;
+    
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+}
+
+.feature-item {
+    text-align: center;
+}
+
+.feature-icon {
+    font-size: 3rem;
+    color: var(--color-primary);
+    margin-bottom: 20px;
+}
+
+.feature-text {
+    font-size: 1rem;
+    color: var(--color-secondary);
+    line-height: 1.5;
+}
+
+/* 4. Gallery Section */
+.gallery-section {
+    padding: 80px 0;
+    background-color: var(--color-accent);
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: var(--transition);
+}
+
+.gallery-item:hover {
+    transform: scale(1.05);
+}
+
+.gallery-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* 5. Why Join Us Section */
+.why-join-section {
+    padding: 80px 0;
+    background-color: var(--color-light);
+    border-bottom: 2px solid red;
+    border-top: 2px solid red;
+}
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+}
+
+.benefit-box {
+    text-align: center;
+    padding: 30px 20px;
+    background-color: var(--color-light);
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: var(--transition);
+}
+
+.benefit-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.benefit-icon {
+    font-size: 2.5rem;
+    color: var(--color-primary);
+    margin-bottom: 20px;
+}
+
+.benefit-text {
+    font-size: 1rem;
+    color: var(--color-dark);
+    font-weight: 600;
+}
+
+/* 6. How It Works Section */
+.how-it-works-section {
+    padding: 60px 0;
+    background-color: var(--color-secondary);
+    color: var(--color-light);
+    border-bottom: 2px solid red;
+}
+
+/* Reduce extra space before the grid title in How It Works */
+.how-it-works-section .section-title {
+    margin-bottom: 24px;
+}
+
+.workflow-section {
+    margin-bottom: 40px;
+}
+
+.workflow-title {
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 40px;
+    color: var(--color-light);
+}
+
+.workflow-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.workflow-box {
+    text-align: center;
+    background-color: var(--color-light);
+    padding: 24px 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+.workflow-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.workflow-icon {
+    width: 80px;
+    height: 80px;
+    display: grid !important; 
+    place-items: center !important;
+    border-radius: 50%;
+    background-color: var(--color-accent);
+    color: var(--color-primary);
+    font-size: 34px !important;
+    margin-bottom: 16px;
+    line-height: 0 !important; 
+    overflow: hidden; 
+    box-sizing: border-box;
+    flex: 0 0 80px; 
+    aspect-ratio: 1 / 1; 
+    position: relative; 
+}
+
+
+.how-it-works-section .workflow-icon { width: 80px !important; height: 80px !important; }
+.workflow-icon::before {
+    display: block !important;
+    line-height: 1 !important; 
+    font-size: inherit !important;
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important; 
+}
+
+.workflow-text {
+    font-size: 1rem;
+    color: var(--color-dark);
+    font-weight: 600;
+}
+
+/* 7. Testimonials Section */
+.testimonials-section {
+    padding: 80px 0;
+    background-color: var(--color-light);
+    border-bottom: 2px solid red;
+}
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+}
+
+.testimonial-box {
+    background-color: var(--color-light);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: var(--transition);
+}
+
+.testimonial-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.testimonial-text {
+    font-size: 1rem;
+    color: var(--color-secondary);
+    line-height: 1.6;
+    margin-bottom: 20px;
+    font-style: italic;
+}
+
+.testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.author-image {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.author-name {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--color-dark);
+    margin: 0;
+}
+
+.author-title {
+    font-size: 0.9rem;
+    color: var(--color-secondary);
+    margin: 0;
+}
+
+/* 8. Join Community Section */
+.join-community-section {
+    padding: 80px 0;
+    background-color: var(--color-accent);
+}
+
+.community-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.community-img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.community-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--color-dark);
+    margin-bottom: 20px;
+}
+
+.community-description {
+    font-size: 1.2rem;
+    color: var(--color-secondary);
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.community-btn {
+    margin-bottom: 20px;
+}
+
+.community-note {
+    font-size: 1rem;
+    color: var(--color-secondary);
+    font-style: italic;
+}
+
+/* 9. Explore Gigster Section */
+.explore-gigster-section {
+    padding: 80px 0;
+    background-color: var(--color-primary);
+    text-align: center;
+    border-top: 2px solid var(--color-light);
+    border-bottom: 2px solid var(--color-light);
+}
+
+.explore-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--color-light);
+    margin-bottom: 20px;
+}
+
+.explore-description {
+    font-size: 1.2rem;
+    color: var(--color-light);
+    margin-bottom: 30px;
+    opacity: 0.9;
+}
+
+.explore-btn {
+    background-color: var(--color-light);
+    color: var(--color-primary);
+    font-weight: 700;
+}
+
+.explore-btn:hover {
+    background-color: var(--color-accent);
+    color: var(--color-dark);
+}
+
+/* 10. Footer */
+.footer {
+    background-color: var(--color-dark);
+    color: var(--color-light);
+    padding: 60px 0 20px 0;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.footer-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: var(--color-light);
+}
+
+.footer-description {
+    font-size: 0.9rem;
+    color: var(--color-accent);
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.social-icon {
+    width: 40px;
+    height: 40px;
+    background-color: var(--color-primary);
+    color: var(--color-light);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.social-icon:hover {
+    background-color: var(--color-accent);
+    color: var(--color-dark);
+    transform: translateY(-2px);
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    margin-bottom: 10px;
+}
+
+.footer-link {
+    color: var(--color-accent);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: var(--transition);
+}
+
+.footer-link:hover {
+    color: var(--color-light);
+}
+
+.footer-bottom {
+    border-top: 1px solid var(--color-secondary);
+    padding-top: 20px;
+    text-align: center;
+}
+
+.footer-copyright {
+    font-size: 0.9rem;
+    color: var(--color-accent);
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .gigs-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+    
+    .features-grid,
+    .benefits-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+    
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .workflow-grid,
+    .testimonials-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .community-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .footer-content {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .gigs-grid,
+    .features-grid,
+    .benefits-grid,
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+    }
+}

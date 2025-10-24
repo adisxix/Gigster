@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gigster - Account</title>
+<link rel="stylesheet" href="../css/global-base.css"> 
+<link rel="stylesheet" href="../css/shared-components.css">
+<link rel="stylesheet" href="../css/account-styles.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-left">
+            <a href="home.html" style="text-decoration: none; display: flex; align-items: center; gap: 15px;">
+                <img id="navLogo" class="nav-logo" src="../img/logo.png" alt="Gigster Logo">
+                <span class="nav-brand">GIGSTER</span>
+            </a>
+        
+        </div>
+        
+        <div class="navbar-center">
+            <a href="explore-gigs.html" class="nav-link">BROWSE</a>
+            <a href="community.html" class="nav-link">COMMUNITY</a>
+            <a href="about.html" class="nav-link">ABOUT</a>
+            <a href="help.html" class="nav-link">HELP</a>
+        </div>
+        
+        <div class="navbar-right">
+            <div class="profile-circle" id="profileCircle">
+                <img id="navProfileImg" src="../img/logo.png" alt="User Profile Picture (Click to go to Dashboard)">
+            </div>
+        </div>
+    </nav>
+
+    <main class="account-container">
+        <h1 class="dashboard-heading">DASHBOARD</h1>
+        
+        <div class="account-content">
+            <div class="account-left">
+                <div class="profile-image-container">
+                    <img id="profilePic" class="profile-pic" src="../img/logo.png" alt="User's Main Profile Picture">
+                    <label for="profilePicUpload" class="profile-upload-label">
+                        <i class="fas fa-camera"></i>
+                    </label>
+                    <input type="file" id="profilePicUpload" class="profile-upload" accept="image/*" onchange="handleProfilePicChange(event)">
+                </div>
+                <button class="logout-btn" onclick="handleLogout()">LOGOUT</button>
+            </div>
+
+            <div class="account-right">
+                <div class="user-details">
+                    <h2 id="userName" class="user-name">Jane Doe</h2>
+                    <p class="user-email">Email: <span id="userEmail">jane.doe@gigster.com</span></p>
+                    <p class="user-phone">Phone: <span id="userPhone">+91 98765 43210</span></p>
+                </div>
+                
+                <hr class="divider">
+
+                <div class="gigs-section">
+                    <div class="gigs-column">
+                        <p class="gigs-heading">Gigs Posted</p>
+                        <h3 id="gigsPosted" class="gigs-count">5</h3>
+                    </div>
+                    <div class="gigs-column">
+                        <p class="gigs-heading">Gigs Completed</p>
+                        <h3 id="gigsCompleted" class="gigs-count">3</h3>
+                    </div>
+                </div>
+
+                <div class="earnings-section">
+                    <p class="earnings-heading">Total Earnings</p>
+                    <div class="earnings-content">
+                        <span id="earningsAmount" class="earnings-amount">₹ 4,500</span>
+                        <a href="withdraw_select.html" class="withdraw-btn">Withdraw</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+    <script src="../js/home.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            initSharedElements();
+            loadAccountData();
+        });
+        
+        function loadAccountData() {
+            const user = getUser();
+            if (!user) {
+                window.location.href = 'index.html';
+                return;
+            }
+            
+            // Update user details
+            document.getElementById('userName').textContent = `${user.firstName} ${user.lastName}`;
+            document.getElementById('userEmail').textContent = user.email;
+            document.getElementById('userPhone').textContent = user.phoneNumber;
+            document.getElementById('gigsPosted').textContent = user.gigsPosted || 0;
+            document.getElementById('gigsCompleted').textContent = user.gigsCompleted || 0;
+            document.getElementById('earningsAmount').textContent = `₹ ${(user.earnings || 0).toLocaleString()}`;
+            
+            // Update profile picture
+            document.getElementById('profilePic').src = user.profilePic || '../img/logo.png';
+        }
+        
+        function handleProfilePicChange(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    document.getElementById('profilePic').src = e.target.result;
+                    // Update the user's profile picture
+                    const user = getUser();
+                    if (user) {
+                        user.profilePic = e.target.result;
+                        updateCurrentUser(user);
+                    }
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+        
+        function handleLogout() {
+            localStorage.removeItem('gigsterUser');
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+</html>

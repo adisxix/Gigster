@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gigster - Post a Gig</title>
+   <link rel="stylesheet" href="../css/global-base.css"> 
+<link rel="stylesheet" href="../css/shared-components.css">
+<link rel="stylesheet" href="../css/post-gig-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-left">
+            <a href="home.html" style="text-decoration: none; display: flex; align-items: center; gap: 15px;">
+                <img id="navLogo" class="nav-logo" src="../img/logo.png" alt="Gigster Logo">
+                <span class="nav-brand">GIGSTER</span>
+            </a>
+        </div>
+        
+        <div class="navbar-center">
+            <a href="explore-gigs.html" class="nav-link">BROWSE</a> 
+            <a href="community.html" class="nav-link">COMMUNITY</a>
+            <a href="about.html" class="nav-link">ABOUT</a>
+            <a href="help.html" class="nav-link">HELP</a>
+        </div>
+        
+        <div class="navbar-right">
+            <div class="profile-circle" id="profileCircle">
+                <img id="navProfileImg" src="../img/logo.png" alt="User Profile Picture (Click to go to Dashboard)">
+            </div>
+        </div>
+    </nav>
+
+    <main class="post-gig-container">
+        <div class="post-gig-card">
+            <div class="form-logo">
+                <img src="../img/logo.png" alt="Gigster Logo" class="form-logo-img">
+            </div>
+            <h1>POST A NEW GIG</h1>
+            
+            <form id="postGigForm" onsubmit="handlePostGig(event)" action="#">
+                <div class="form-group">
+                    <label for="gig-title">Gig Title</label>
+                    <input type="text" id="gig-title" required placeholder="e.g., Senior Web Developer for React Project">
+                </div>
+
+                <div class="form-group">
+                    <label for="gig-description">Description</label>
+                    <textarea id="gig-description" required placeholder="Describe the gig requirements and scope..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="gig-category">Category</label>
+                    <select id="gig-category" required>
+                        <option value="" disabled selected>Select a category</option>
+                        <option value="Web Development">Web Development</option>
+                        <option value="Graphic Design">Graphic Design</option>
+                        <option value="Writing">Writing & Translation</option>
+                        <option value="Marketing">Digital Marketing</option>
+                        <option value="Consulting">Consulting</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="gig-price">Budget/Price (₹)</label>
+                    <input type="number" id="gig-price" required placeholder="e.g., 50000" min="0">
+                </div>
+
+                <div class="form-group">
+                    <label for="gig-people">People Needed</label>
+                    <input type="number" id="gig-people" required placeholder="e.g., 1" min="1">
+                </div>
+                
+                <label>Gig Image (Optional)</label>
+                <div class="image-upload-area" onclick="document.getElementById('gigImageInput').click();">
+                    <i class="fas fa-upload"></i>
+                    <p>Click to upload image</p>
+                </div>
+                <img id="imagePreview" class="image-preview" src="" alt="Gig Preview Image" style="display: none;">
+                <input type="file" id="gigImageInput" accept="image/*" onchange="handleImageChange(event)" style="display: none;">
+
+                <button type="submit" class="btn btn-primary">POST GIG</button>
+            </form>
+        </div>
+    </main>
+
+    <script src="../js/home.js"></script>
+    <script>
+        function handleImageChange(event) {
+            const file = event.target.files[0];
+            const imagePreview = document.getElementById('imagePreview');
+            const uploadArea = document.querySelector('.image-upload-area');
+
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    imagePreview.src = e.target.result;
+                    imagePreview.style.display = 'block';
+                    uploadArea.style.display = 'none';
+                };
+                reader.readAsDataURL(file);
+            } else {
+                imagePreview.style.display = 'none';
+                imagePreview.src = '';
+                uploadArea.style.display = 'block';
+            }
+        }
+
+        function handlePostGig(event) {
+            event.preventDefault();
+
+            // Get form values
+            const title = document.getElementById('gig-title').value.trim();
+            const description = document.getElementById('gig-description').value.trim();
+            const category = document.getElementById('gig-category').value;
+            const price = parseFloat(document.getElementById('gig-price').value);
+            const peopleNeeded = parseInt(document.getElementById('gig-people').value);
+            const imagePreview = document.getElementById('imagePreview');
+            
+            if (!title || !description || !category || isNaN(price) || isNaN(peopleNeeded)) {
+                alert('Please fill out all required fields correctly.');
+                return;
+            }
+
+            if (price <= 0) {
+                alert('Price must be greater than 0.');
+                return;
+            }
+
+            if (peopleNeeded <= 0) {
+                alert('Number of people needed must be at least 1.');
+                return;
+            }
+
+            console.log('Image preview display:', imagePreview.style.display);
+            console.log('Image preview src:', imagePreview.src);
+            
+            const newGig = {
+                title,
+                description,
+                category,
+                price, 
+                peopleNeeded, 
+                image: (imagePreview.style.display === 'block' && imagePreview.src && imagePreview.src !== '') ? imagePreview.src : '../img/logo.png', 
+                createdAt: new Date().toISOString()
+            };
+            
+            console.log('Saving gig with image:', newGig.image);
+
+            // Save to localStorage
+            const postedGigs = JSON.parse(localStorage.getItem('gigster_posted_gigs')) || [];
+            postedGigs.push(newGig);
+            localStorage.setItem('gigster_posted_gigs', JSON.stringify(postedGigs));
+
+            // Update user's gigs posted count
+            const user = getUser();
+            if (user) {
+                user.gigsPosted = (user.gigsPosted || 0) + 1;
+                updateCurrentUser(user);
+            }
+
+            document.getElementById('postGigForm').reset();
+            imagePreview.style.display = 'none';
+            imagePreview.src = '';
+            document.querySelector('.image-upload-area').style.display = 'block';
+
+            alert('Gig posted successfully! Your dashboard has been updated.');
+            window.location.href = 'account.html'; 
+        }
+    </script>
+</body>
+</html>

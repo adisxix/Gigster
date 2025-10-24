@@ -1,0 +1,62 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --color-red: #e63946;
+    --color-off-white: #f1faee;
+    --color-light-blue: #a8dadc;
+    --color-medium-blue: #457b9d;
+    --color-dark-blue: #1d3557;
+
+    --color-primary: var(--color-red);
+    --color-light: var(--color-off-white);
+    --color-accent: var(--color-light-blue);
+    --color-secondary: var(--color-medium-blue);
+    --color-dark: var(--color-dark-blue);
+    --transition: all 0.3s ease;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--color-light);
+    color: var(--color-dark);
+}
+
+.btn {
+    padding: 10px 25px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn-primary, .btn-post {
+    background-color: var(--color-primary);
+    color: var(--color-light);
+}
+
+.btn-primary:hover, .btn-post:hover {
+    background-color: #d13240; 
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn-explore {
+    background-color: transparent;
+    border: 2px solid var(--color-light);
+    color: var(--color-light);
+}
+
+.btn-explore:hover {
+    background-color: var(--color-light);
+    color: var(--color-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
