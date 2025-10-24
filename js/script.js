@@ -54,7 +54,7 @@ function handleLogin(event) {
 
     if (user && user.password === password) {
         saveLoggedInUser(user); 
-        window.location.href = 'home.html';
+        window.location.href = 'html/home.html';
     } else {
         alert('Invalid email or password. Please try again.');
     }
@@ -95,7 +95,7 @@ function handleSignup(event) {
         email,
         phoneNumber,
         password,
-        profilePic: '../img/logo.png', 
+        profilePic: '/img/logo.png', 
         gigsPosted: 0,
         gigsCompleted: 0,
         earnings: 0,
